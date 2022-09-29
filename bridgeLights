@@ -1,0 +1,16 @@
+#initial values of variables
+#numCars is the number of cars, takes user input and converts it to an int
+#lightsOn is a boolean that is True when the lights on the bridge are on
+numCars = int(input("Enter the number of cars: "))
+lightsOn = False
+
+#checks the number of cars on the bridge
+#it will take new inputs while the number of cars is less than 10
+while(numCars < 10):
+  lightsOn = False
+  numCars = int(input("Enter the number of cars: "))
+
+#once the number of cars on the bridge is at least 10, this code will run
+#turns the lights on and prints in the console
+lightsOn = True
+print("The lights are on.")
