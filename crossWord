@@ -1,0 +1,603 @@
+//Link to project: https://studio.code.org/projects/applab/Fk-s39sjGTpZGoeMC05gTWYNUUXRmEm4LMLH0QHDUPw
+/**
+ * The crosswords in this app are reacreations the Nytimes mini crosswords.
+ * A different crossword can be found daily at the link below:
+ * https://www.nytimes.com/crosswords/game/mini
+ **/
+//declare variables 
+//sets the text for the hints screen based on the selected crossword
+var scrn = "";
+
+//three dimensional arrays that correspond to a crossword each
+//updated based on which items in the crossword are right
+//every value is set to zero when the crossword is finished
+var c1 = [];
+c1[0] = [0, 1, 1, 1, 1];
+c1[1] = [1, 1, 1, 1, 1];
+c1[2] = [1, 1, 1, 1, 1];
+c1[3] = [1, 1, 1, 1, 1];
+c1[4] = [1, 1, 1, 1, 0];
+
+var c2 = [];
+c2[0] = [1, 1, 1, 0, 0];
+c2[1] = [1, 1, 1, 1, 1];
+c2[2] = [1, 1, 1, 1, 1];
+c2[3] = [1, 1, 1, 1, 1];
+c2[4] = [0, 0, 1, 1, 1];
+
+var c3 = [];
+c3[0] = [1, 1, 1, 1, 1];
+c3[1] = [1, 1, 1, 1, 1];
+c3[2] = [1, 1, 1, 1, 1];
+c3[3] = [1, 1, 1, 1, 1];
+c3[4] = [0, 0, 1, 1, 1];
+
+//event handlers to check user inputs 
+//mainly check keyboard and button inputs
+onEvent("text_area2", "change", function( ) {
+	console.log("text_area2 entered text: " + getText("text_area2"));
+	readBox("text_area2");
+	checkBox("2", "W");
+});
+
+onEvent("text_area3", "change", function( ) {
+	console.log("text_area3 entered text: " + getText("text_area3"));
+	 readBox("text_area3");
+	 checkBox("3", "I");
+});
+
+onEvent("text_area4", "change", function( ) {
+	console.log("text_area4 entered text: " + getText("text_area4"));
+	 readBox("text_area4");
+	 checkBox("4", "S");
+});
+
+onEvent("text_area5", "change", function( ) {
+	console.log("text_area5 entered text: " + getText("text_area5"));
+	readBox("text_area5");
+	checkBox("5", "H");
+});
+
+onEvent("text_area6", "change", function( ) {
+	console.log("text_area6 entered text: " + getText("text_area6"));
+	readBox("text_area6");
+	checkBox("6", "H");
+});
+
+onEvent("text_area7", "change", function( ) {
+	console.log("text_area7 entered text: " + getText("text_area7"));
+	readBox("text_area7");
+	checkBox("7", "O");
+});
+
+onEvent("text_area8", "change", function( ) {
+	console.log("text_area8 entered text: " + getText("text_area8"));
+	readBox("text_area8");
+	checkBox("8", "N");
+});
+
+onEvent("text_area9", "change", function( ) {
+	console.log("text_area9 entered text: " + getText("text_area9"));
+	readBox("text_area9");
+	checkBox("9", "E");
+});
+
+onEvent("text_area10", "change", function( ) {
+	console.log("text_area10 entered text: " + getText("text_area10"));
+	readBox("text_area10");
+	checkBox("10", "Y");
+});
+
+onEvent("text_area11", "change", function( ) {
+	console.log("text_area11 entered text: " + getText("text_area11"));
+	readBox("text_area11");
+	checkBox("11", "U");
+});
+
+onEvent("text_area12", "change", function( ) {
+	console.log("text_area12 entered text: " + getText("text_area12"));
+	readBox("text_area12");
+	checkBox("12", "N");
+});
+
+onEvent("text_area13", "change", function( ) {
+	console.log("text_area13 entered text: " + getText("text_area13"));
+	readBox("text_area13");
+	checkBox("13", "C");
+});
+
+onEvent("text_area14", "change", function( ) {
+	console.log("text_area14 entered text: " + getText("text_area14"));
+	readBox("text_area14");
+	checkBox("14", "A");
+});
+
+onEvent("text_area15", "change", function( ) {
+	console.log("text_area15 entered text: " + getText("text_area15"));
+	readBox("text_area15");
+	checkBox("15", "P");
+});
+
+onEvent("text_area16", "change", function( ) {
+	console.log("text_area16 entered text: " + getText("text_area16"));
+	readBox("text_area16");
+	checkBox("16", "S");
+});
+
+onEvent("text_area17", "change", function( ) {
+	console.log("text_area17 entered text: " + getText("text_area17"));
+	readBox("text_area17");
+	checkBox("17", "K");
+});
+
+onEvent("text_area18", "change", function( ) {
+	console.log("text_area18 entered text: " + getText("text_area18"));
+	readBox("text_area18");
+	checkBox("18", "A");
+});
+
+onEvent("text_area19", "change", function( ) {
+	console.log("text_area19 entered text: " + getText("text_area19"));
+	readBox("text_area19");
+	checkBox("19", "T");
+});
+
+onEvent("text_area20", "change", function( ) {
+	console.log("text_area20 entered text: " + getText("text_area20"));
+	readBox("text_area20");
+	checkBox("20", "E");
+});
+
+onEvent("text_area21", "change", function( ) {
+	console.log("text_area21 entered text: " + getText("text_area21"));
+	readBox("text_area21");
+	checkBox("21", "H");
+});
+
+onEvent("text_area22", "change", function( ) {
+	console.log("text_area22 entered text: " + getText("text_area22"));
+	readBox("text_area22");
+	checkBox("22", "A");
+});
+
+onEvent("text_area23", "change", function( ) {
+	console.log("text_area23 entered text: " + getText("text_area23"));
+	readBox("text_area23");
+	checkBox("23", "N");
+});
+
+onEvent("text_area24", "change", function( ) {
+	console.log("text_area24 entered text: " + getText("text_area24"));
+	readBox("text_area24");
+	checkBox("24", "S");
+});
+
+onEvent("text_area27", "change", function( ) {
+	console.log("text_area27 entered text: " + getText("text_area27"));
+	readBox("text_area27");
+	checkBox("27", "F");
+});
+
+onEvent("text_area28", "change", function( ) {
+	console.log("text_area28 entered text: " + getText("text_area28"));
+	readBox("text_area28");
+	checkBox("28", "U");
+});
+
+onEvent("text_area29", "change", function( ) {
+	console.log("text_area29 entered text: " + getText("text_area29"));
+	readBox("text_area29");
+	checkBox("29", "N");
+});
+
+onEvent("text_area32", "change", function( ) {
+	console.log("text_area32 entered text: " + getText("text_area32"));
+	readBox("text_area32");
+	checkBox("32", "A");
+});
+
+onEvent("text_area33", "change", function( ) {
+	console.log("text_area33 entered text: " + getText("text_area33"));
+	readBox("text_area33");
+	checkBox("33", "G");
+});
+
+onEvent("text_area34", "change", function( ) {
+	console.log("text_area34 entered text: " + getText("text_area34"));
+	readBox("text_area34");
+	checkBox("34", "A");
+});
+
+onEvent("text_area35", "change", function( ) {
+	console.log("text_area35 entered text: " + getText("text_area35"));
+	readBox("text_area35");
+	checkBox("35", "I");
+});
+
+onEvent("text_area36", "change", function( ) {
+	console.log("text_area36 entered text: " + getText("text_area36"));
+	readBox("text_area36");
+	checkBox("36", "N");
+});
+
+onEvent("text_area37", "change", function( ) {
+	console.log("text_area37 entered text: " + getText("text_area37"));
+	readBox("text_area37");
+	checkBox("37", "S");
+});
+
+onEvent("text_area38", "change", function( ) {
+	console.log("text_area38 entered text: " + getText("text_area38"));
+	readBox("text_area38");
+	checkBox("38", "L");
+});
+
+onEvent("text_area39", "change", function( ) {
+	console.log("text_area39 entered text: " + getText("text_area39"));
+	readBox("text_area39");
+	checkBox("39", "I");
+});
+
+onEvent("text_area40", "change", function( ) {
+	console.log("text_area40 entered text: " + getText("text_area40"));
+	readBox("text_area40");
+	checkBox("40", "D");
+});
+
+onEvent("text_area41", "change", function( ) {
+	console.log("text_area41 entered text: " + getText("text_area41"));
+	readBox("text_area41");
+	checkBox("41", "E");
+});
+
+onEvent("text_area42", "change", function( ) {
+	console.log("text_area42 entered text: " + getText("text_area42"));
+	readBox("text_area42");
+	checkBox("42", "T");
+});
+
+onEvent("text_area43", "change", function( ) {
+	console.log("text_area43 entered text: " + getText("text_area43"));
+	readBox("text_area43");
+	checkBox("43", "Y");
+});
+
+onEvent("text_area44", "change", function( ) {
+	console.log("text_area44 entered text: " + getText("text_area44"));
+	readBox("text_area44");
+	checkBox("44", "L");
+});
+
+onEvent("text_area45", "change", function( ) {
+	console.log("text_area45 entered text: " + getText("text_area45"));
+	readBox("text_area45");
+	checkBox("45", "E");
+});
+
+onEvent("text_area46", "change", function( ) {
+	console.log("text_area46 entered text: " + getText("text_area46"));
+	readBox("text_area46");
+	checkBox("46", "R");
+});
+
+onEvent("text_area49", "change", function( ) {
+	console.log("text_area49 entered text: " + getText("text_area49"));
+	readBox("text_area49");
+	checkBox("49", "S");
+});
+
+onEvent("text_area50", "change", function( ) {
+	console.log("text_area50 entered text: " + getText("text_area50"));
+	readBox("text_area50");
+	checkBox("50", "A");
+});
+
+onEvent("text_area51", "change", function( ) {
+	console.log("text_area51 entered text: " + getText("text_area51"));
+	readBox("text_area51");
+	checkBox("51", "D");
+});
+
+onEvent("text_area52", "change", function( ) {
+	console.log("text_area52 entered text: " + getText("text_area52"));
+	readBox("text_area52");
+	checkBox("52", "A");
+});
+
+onEvent("text_area53", "change", function( ) {
+	console.log("text_area53 entered text: " + getText("text_area53"));
+	readBox("text_area53");
+	checkBox("53", "T");
+});
+
+onEvent("text_area54", "change", function( ) {
+	console.log("text_area54 entered text: " + getText("text_area54"));
+	readBox("text_area54");
+	checkBox("54", "L");
+});
+
+onEvent("text_area55", "change", function( ) {
+	console.log("text_area55 entered text: " + getText("text_area55"));
+	readBox("text_area55");
+	checkBox("55", "A");
+});
+
+onEvent("text_area56", "change", function( ) {
+	console.log("text_area56 entered text: " + getText("text_area56"));
+	readBox("text_area56");
+	checkBox("56", "S");
+});
+
+onEvent("text_area57", "change", function( ) {
+	console.log("text_area57 entered text: " + getText("text_area57"));
+	readBox("text_area57");
+	checkBox("57", "C");
+});
+
+onEvent("text_area58", "change", function( ) {
+	console.log("text_area58 entered text: " + getText("text_area58"));
+	readBox("text_area58");
+	checkBox("58", "R");
+});
+
+onEvent("text_area59", "change", function( ) {
+	console.log("text_area59 entered text: " + getText("text_area59"));
+	readBox("text_area59");
+	checkBox("59", "U");
+});
+
+onEvent("text_area60", "change", function( ) {
+	console.log("text_area60 entered text: " + getText("text_area60"));
+	readBox("text_area60");
+	checkBox("60", "S");
+});
+
+onEvent("text_area61", "change", function( ) {
+	console.log("text_area61 entered text: " + getText("text_area61"));
+	readBox("text_area61");
+	checkBox("61", "H");
+});
+
+onEvent("text_area62", "change", function( ) {
+	console.log("text_area62 entered text: " + getText("text_area62"));
+	readBox("text_area62");
+	checkBox("62", "R");
+});
+
+onEvent("text_area63", "change", function( ) {
+	console.log("text_area63 entered text: " + getText("text_area63"));
+	readBox("text_area63");
+	checkBox("63", "A");
+});
+
+onEvent("text_area64", "change", function( ) {
+	console.log("text_area64 entered text: " + getText("text_area64"));
+	readBox("text_area64");
+	checkBox("64", "N");
+});
+
+onEvent("text_area65", "change", function( ) {
+	console.log("text_area65 entered text: " + getText("text_area65"));
+	readBox("text_area65");
+	checkBox("65", "D");
+});
+
+onEvent("text_area66", "change", function( ) {
+	console.log("text_area66 entered text: " + getText("text_area66"));
+	readBox("text_area66");
+	checkBox("66", "O");
+});
+
+onEvent("text_area67", "change", function( ) {
+	console.log("text_area67 entered text: " + getText("text_area67"));
+	readBox("text_area67");
+	checkBox("67", "E");
+});
+
+onEvent("text_area68", "change", function( ) {
+	console.log("text_area68 entered text: " + getText("text_area68"));
+	readBox("text_area68");
+	checkBox("68", "P");
+});
+
+onEvent("text_area69", "change", function( ) {
+	console.log("text_area69 entered text: " + getText("text_area69"));
+	readBox("text_area69");
+	checkBox("69", "C");
+});
+
+onEvent("text_area70", "change", function( ) {
+	console.log("text_area70 entered text: " + getText("text_area70"));
+	readBox("text_area70");
+	checkBox("70", "O");
+});
+
+onEvent("text_area71", "change", function( ) {
+	console.log("text_area71 entered text: " + getText("text_area71"));
+	readBox("text_area71");
+	checkBox("71", "T");
+});
+
+onEvent("text_area74", "change", function( ) {
+	console.log("text_area74 entered text: " + getText("text_area74"));
+	readBox("text_area74");
+	checkBox("74", "H");
+});
+
+onEvent("text_area75", "change", function( ) {
+	console.log("text_area75 entered text: " + getText("text_area75"));
+	readBox("text_area75");
+	checkBox("75", "I");
+});
+
+onEvent("text_area76", "change", function( ) {
+	console.log("text_area76 entered text: " + getText("text_area76"));
+	readBox("text_area76");
+	checkBox("76", "S");
+});
+
+onEvent("button1", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("hints");
+});
+
+onEvent("button2", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen(scrn);
+	
+});
+
+onEvent("button3", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("hints");
+});
+
+onEvent("button4", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("hints");
+});
+
+onEvent("button5", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("crossword2");
+	scrn = "crossword2";
+	setText("text_area90",  "Across: \n1 A good time \n4 Once more \n7 Part of a PowerPoint presentation \n8 John ___, U.S. president from 1841-45 \n9 In low spirits \n\nDown: \n1 Speedy \n2 Like a fairy tale duckling \n3 They're always at your fingertips \n5 Notion \n6 A geek or a bookworm");
+});
+
+onEvent("button6", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("crossword1");
+	scrn = "crossword1";
+	setText("text_area90",  "Across: \n1 Something a genie grants \n5 Sweetheart \n6 Remove a pen's cover \n7 Do some ollies and kickflips \n8 Fairy tale author ___ Christian Andersen \n\nDown: \n1 Eccentric chocolate maker \n2 Like Machu Pichu \n3 Window, middle, and isle \n4 Very excited, in slang \n5 \"Be quiet\"");
+});
+
+onEvent("button7", "click", function( ) {
+	console.log("button1 clicked!");
+	setScreen("crossword3");
+	scrn = "crossword3";
+	setText("text_area90",  "Across: \n1 Book of maps \n6 Unexpressed infatuation \n7 Person you've never seen before, informally \n8 Part of Walt Disney World \n9 \"___ Dark Materials\" series \n\nDown: \n1 Unit of farmland \n2 Hip-hop subgenre that originated in Atlanta \n3 Midday Meal \n4 \"Same for me\" \n5 First dose, second dose and booster");
+});
+
+onEvent("button8", "click", function( ) {
+	console.log("button8 clicked!");
+	setScreen("home");
+});
+
+onEvent("button9", "click", function( ) {
+	console.log("button9 clicked!");
+	setScreen("home");
+});
+
+onEvent("button10", "click", function( ) {
+	console.log("button10 clicked!");
+	setScreen("home");
+});
+
+onEvent("image1", "click", function( ) {
+	console.log("image3 clicked!");
+	setScreen("home");
+});
+
+onEvent("image2", "click", function( ) {
+	console.log("image3 clicked!");
+	setScreen("home");
+});
+
+onEvent("image3", "click", function( ) {
+	console.log("image3 clicked!");
+	setScreen("home");
+});
+
+//functions
+//takes the text from the entered text box and capitalizes it
+//if the string has more than one character, it will only return one character (the first character)
+//text box number is passed as an argument {box}
+function readBox(box){
+  var temp = getText(box);
+  if(temp.length > 1){
+    setText(box, temp[0].toUpperCase());
+  }else{
+    setText(box, temp.toUpperCase());
+  }
+  temp = "";
+}
+
+//checks whether the letter entered into a given text box matches the crossword
+//highlights the letter blue and makes the text read-only if the letter is right
+//edits the given box's corresponding array value to indicate that the letter is correct
+//the box number is passed as an argument {box}
+//the right letter is passed as an argument {letter}
+////calls a seperate function to check whether the crossword is complete "checkAll()"
+function checkBox(num, letter){
+  if(getText("text_area" + num).toUpperCase() == letter){
+	  setProperty(("text_area" + num), "text-color", "blue");
+	  setProperty(("text_area" + num), "readonly", true);
+	  setText("text_area" + num, letter);
+	  if(num <= 24){
+	    if(num <= 5){
+	      (c1[0][num - 1] -= 1);
+	    }else if(num <= 10){
+	      (c1[1][num - 6] -= 1);
+	    }else if(num <= 15){
+	      (c1[2][num - 11] -= 1);
+	    }else if(num <= 20){
+	      (c1[3][num - 16] -= 1);
+	    }else if(num <= 24){
+	      (c1[4][num - 21] -= 1);
+	    }
+	    checkAll(c1);
+	 }else if(num <= 51){
+	    if(num <= 31){
+	      (c2[0][num - 27] -= 1);
+	    }else if(num <= 36){
+	      (c2[1][num - 32] -= 1);
+	    }else if(num <= 41){
+	      (c2[2][num - 37] -= 1);
+	    }else if(num <= 46){
+	      (c2[3][num - 42] -= 1);
+	    }else if(num <= 51){
+	      (c2[4][num - 47] -= 1);
+	    } 
+	    checkAll(c2);
+	 }else if(num >= 52){
+	    if(num <= 56){
+	      (c3[0][num - 52] -= 1);
+	    }else if(num <= 61){
+	      (c3[1][num - 57] -= 1);
+	    }else if(num <= 66){
+	      (c3[2][num - 62] -= 1);
+	    }else if(num <= 71){
+	      (c3[3][num - 67] -= 1);
+	    }else if(num <= 76){
+	      (c3[4][num - 72] -= 1);
+	    }
+	    checkAll(c3);
+	  }
+  }
+}
+
+//checks whether all the values in the given array are zero (the array corresponds to the crossword)
+//if the values are all zero, the congratulatory finish message is shown in the corresponding crossword
+//if the values are not all zero, the function is ended by returning "no" in console.log
+//the array to check is passed as an argument {c}
+function checkAll(c){
+  for(var i = 0; i < 5; i++){
+       for(var j = 0; j < 5; j++){
+        if(c[i][j] == 1){ 
+	         return(console.log("no")); 
+       }
+	  }
+  }
+	     if(c === c1){
+	      showElement("text_area78");
+	      showElement("button8");
+	     }
+	     if(c === c2){
+	      showElement("text_area79");
+	      showElement("button9");
+	     }
+	     if(c === c3){
+	      showElement("text_area80");
+	      showElement("button10");
+	     }
+}
